@@ -1,10 +1,10 @@
-import React, { Component } from 'react';
-import { BrowserRouter, Switch, Route } from 'react-router-dom';
+import React, { Component } from "react";
+import { BrowserRouter, Switch, Route } from "react-router-dom";
 
-import Notes from '../../Routes/Notes';
-import Note from '../../Routes/Note';
-import Add from '../../Routes/Add';
-import Edit from '../../Routes/Edit';
+import Notes from "../../Routes/Notes";
+import Note from "../../Routes/Note";
+import Add from "../../Routes/Add";
+import Edit from "../../Routes/Edit";
 
 class App extends Component {
   render() {

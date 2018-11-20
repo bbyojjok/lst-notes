@@ -1,11 +1,11 @@
-import React, { Component } from 'react';
+import React, { Component } from "react";
 
-import { Link } from 'react-router-dom';
-import styled from 'styled-components';
-import MarkdownRenderer from 'react-markdown-renderer';
+import { Link } from "react-router-dom";
+import styled from "styled-components";
+import MarkdownRenderer from "react-markdown-renderer";
 
-import gql from 'graphql-tag';
-import { Query } from 'react-apollo';
+import gql from "graphql-tag";
+import { Query } from "react-apollo";
 import { GET_NOTE } from "../../queries";
 
 const TitleComponent = styled.div`
@@ -26,28 +26,24 @@ const Button = styled.button``;
 export default class Note extends Component {
   render() {
     const {
-      match:
-      {
-        params: {
-          id
-        }
+      match: {
+        params: { id }
       }
     } = this.props;
     return (
-      <Query query={GET_NOTE} variables={{id}}>
-        {
-          ({data}) =>
-            data.note ? (
-              <>
-                <TitleComponent>
-                  <Title>{data.note && data.note.title}</Title>
-                  <Link to={`/edit/${data.note.id}`}>
-                    <Button>Edit</Button>
-                  </Link>
-                </TitleComponent>
-                <MarkdownRenderer markdown={data.note.content} />
-              </>
-            ) : null
+      <Query query={GET_NOTE} variables={{ id }}>
+        {({ data }) =>
+          data.note ? (
+            <>
+              <TitleComponent>
+                <Title>{data.note && data.note.title}</Title>
+                <Link to={`/edit/${data.note.id}`}>
+                  <Button>Edit</Button>
+                </Link>
+              </TitleComponent>
+              <MarkdownRenderer markdown={data.note.content} />
+            </>
+          ) : null
         }
       </Query>
     );

@@ -1,11 +1,11 @@
-import React, { Component } from 'react';
+import React, { Component } from "react";
 import { Link } from "react-router-dom";
 
 import { ReactComponent as Plus } from "../../Components/plus.svg";
 import styled from "styled-components";
 
-import gql from 'graphql-tag';
-import { Query } from 'react-apollo';
+import gql from "graphql-tag";
+import { Query } from "react-apollo";
 import { GET_NOTES } from "../../queries";
 
 const Header = styled.div`
@@ -74,24 +74,20 @@ export default class NotesContainer extends Component {
               </Button>
             </Link>
           </Title>
-          <Subtitle>메모를 해보자~~~~ sdgklsjdkgl jlsdgj lskdgjl~~~~~~</Subtitle>
+          <Subtitle>메모를 해보자 ~!!</Subtitle>
         </Header>
         <Notes>
           <Query query={GET_NOTES}>
-            {
-              ({data}) => (
-                data.notes
+            {({ data }) =>
+              data.notes
                 ? data.notes.map(note => (
-                  <Link to={`/note/${note.id}`} key={note.id}>
-                    <Note>
-                      <NoteTitle>
-                        {note.title}
-                      </NoteTitle>
-                    </Note>
-                  </Link>
-                ))
+                    <Link to={`/note/${note.id}`} key={note.id}>
+                      <Note>
+                        <NoteTitle>{note.title}</NoteTitle>
+                      </Note>
+                    </Link>
+                  ))
                 : null
-              )
             }
           </Query>
         </Notes>

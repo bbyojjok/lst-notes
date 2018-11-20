@@ -1,9 +1,9 @@
-import { ApolloClient } from 'apollo-client';
-import { InMemoryCache } from 'apollo-cache-inmemory';
-import { withClientState } from 'apollo-link-state';
-import { ApolloLink } from 'apollo-link';
+import { ApolloClient } from "apollo-client";
+import { InMemoryCache } from "apollo-cache-inmemory";
+import { withClientState } from "apollo-link-state";
+import { ApolloLink } from "apollo-link";
 
-import { typeDefs, defaults, resolvers } from './clientState';
+import { typeDefs, defaults, resolvers } from "./clientState";
 
 const cache = new InMemoryCache();
 

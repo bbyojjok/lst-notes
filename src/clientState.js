@@ -1,10 +1,11 @@
 import { NOTE_FRAGMENT } from "./fragments";
 import { GET_NOTES } from "./queries";
-import { saveNotes, restoreNotes } from './offline';
+import { saveNotes, restoreNotes } from "./offline";
 
 export const defaults = {
   notes: restoreNotes()
 };
+
 export const typeDefs = [
   `
   schema {
@@ -26,6 +27,7 @@ export const typeDefs = [
   }
   `
 ];
+
 export const resolvers = {
   Query: {
     note: (_, variables, { cache }) => {
